@@ -6,7 +6,7 @@ id: "on-run-end-context"
 
 <Callout type="warning" title="Caution">
 
-These variables are only available in the context for `on-run-end` hooks. They will evaluate to `none` if used outside of an `on-run-end` hook!
+These variables are only available in the context for `on-run-end` and `on-run-start` hooks. They will evaluate to `none` if used outside of the `on-run-end` and `on-run-start` hooks!
 
 </Callout>
 
@@ -35,7 +35,7 @@ In practice, it might not be a bad idea to put this code into a macro:
 
 {% macro grant_usage_to_schemas(schemas, user) %}
   {% for schema in schemas %}
-    grant usage on {{ schema }} to {{ user }};
+    grant usage on schema {{ schema }} to {{ user }};
   {% endfor %}
 {% endmacro %}
 
